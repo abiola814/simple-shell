@@ -1,17 +1,12 @@
 #include "shell.h"
 
 /**
- * according to alx note code from was re implemented
- * following exercise guide
+ * sig_handler - checks if Ctrl C is pressed
+ * @sig_num: int
  */
-
-/**
- * ter_handler - checks if Ctrl C is pressed
- * @ter_num: int
- */
-void ter_handler(int ter_num)
+void sig_handler(int sig_num)
 {
-	if (ter_num == SIGINT)
+	if (sig_num == SIGINT)
 	{
 		_puts("\n#cisfun$ ");
 	}
@@ -57,7 +52,7 @@ int main(void)
 	list_path *head = '\0';
 	void (*f)(char **);
 
-	signal(SIGINT, ter_handler);
+	signal(SIGINT, sig_handler);
 	while (len != EOF)
 	{
 		_isatty();
